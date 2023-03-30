@@ -10,3 +10,19 @@
 ```yaml:例
       ServiceRole: !ImportValue myBasic-CodeBuildServiceRoleArn
 ```
+
+---
+
+# コマンド例
+
+```
+aws cloudformation deploy --stack-name stack-codepipeline-serviceroles --template-file ./tmpl_service_roles.yaml --capabilities CAPABILITY_NAMED_IAM
+```
+
+```
+ aws cloudformation deploy \
+ --stack-name sample-ppl \
+ --template-file ./tmpl_codepipeline_2.yaml \
+ --parameter-overrides DeployBucketName=S3バケット名 SourceRepositoryName=CodeCommitリポジトリ名 \
+ --capabilities CAPABILITY_NAMED_IAM
+```
