@@ -143,6 +143,7 @@ Resources:
   EventBridgeIAMRole:
     Type: AWS::IAM::Role
     Properties:
+      RoleName: !Sub ${AWS::StackName}-eventbridge-Role
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
@@ -154,10 +155,6 @@ Resources:
               - 'sts:AssumeRole'
       ManagedPolicyArns:
         - !Ref EventBridgeIAMPolicy
-      RoleName: iam-role-eventbridge
-      Tags:
-        - Key: Name
-          Value: iam-role-eventbridge
 
   EventBridge:
     Type: AWS::Events::Rule
