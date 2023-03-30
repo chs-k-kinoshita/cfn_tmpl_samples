@@ -16,7 +16,9 @@
 # コマンド例
 
 ```
-aws cloudformation deploy --stack-name stack-codepipeline-serviceroles --template-file ./tmpl_service_roles.yaml --capabilities CAPABILITY_NAMED_IAM
+aws cloudformation deploy --stack-name stack-codepipeline-serviceroles \
+ --template-file ./tmpl_service_roles.yaml \
+ --capabilities CAPABILITY_NAMED_IAM
 ```
 
 ```
