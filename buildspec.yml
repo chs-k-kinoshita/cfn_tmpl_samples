@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - npm ci
+  build:
+    on-failure: ABORT
+    commands:
+      - npm run build
+  post_build:
+    commands:
+      - cd build
+      - aws s3 sync --exact-timestamps --cache-control 'max-age=2592000' --exclude '*' --include 'static/**/*' . s3://${DEPLOY_BUKET}
+      - aws s3 sync --exact-timestamps --cache-control 'no-cache' --delete . s3://${DEPLOY_BUKET}
